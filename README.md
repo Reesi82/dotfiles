@@ -44,30 +44,6 @@ ZSH is configured in the `zshrc.symlink` file, which will be symlinked to the ho
 * Set the base16 colorscheme to use for both the terminal (iTerm2) and vim/neovim by exporting the `$THEME` and `$BACKGROUND` environment variables
 * And more...
 
-### Prompt
-
-The prompt is meant to be simple while still providing a lot of information to the user, particularly about the status of the git project, if the PWD is a git project. This prompt sets `precmd`, `PROMPT` and `RPROMPT`.
-
-![](http://nicknisi.com/share/prompt.png)
-
-The `precmd` shows the current working directory in it and the `RPROMPT` shows the git and suspended jobs info.
-
-#### Prompt Git Info
-
-The git info shown on the `RPROMPT` displays the current branch name, and whether it is clean or dirty.
-
-![](http://nicknisi.com/share/git-branch-state.png)
-
-Additionally, there are ⇣ and ⇡ arrows that indicate whether a commit has happened and needs to be pushed (⇡), and whether commits have happened on the remote branch that need to be pulled (⇣).
-
-![](http://nicknisi.com/share/git-arrows.png)
-
-#### Suspended Jobs
-
-The prompt will also display a ✱ character in the `RPROMPT` indicating that there is a suspended job that exists in the background. This is helpful in keeping track of putting vim in the background by pressing CTRL-Z.
-
-![](http://nicknisi.com/share/suspended-jobs.png)
-
 ## Vim and Neovim Setup
 
 [Neovim](https://neovim.io/) is a fork and drop-in replacement for vim. in most cases, you would not notice a difference between the two, other than Neovim allows plugins to run asynchronously so that they do not freeze the editor, which is the main reason I have switched over to it. Vim and Neovim both use Vimscript and most plugins will work in both (all of the plugins I use do work in both Vim and Neovim). For this reason, they share the same configuration files in this setup. Neovim uses the [XDG base directory specification](http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html) which means it won't look for a `.vimrc` in your home directory. Instead, its configuration looks like the following:

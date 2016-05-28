@@ -51,9 +51,10 @@ Plug 'vim-airline/vim-airline-themes'         " themes for vim-airline
 Plug 'majutsushi/tagbar'                      " Tagbar
 Plug 'ctrlpvim/ctrlp.vim'                     " Ctrl-P
 Plug 'Chiel92/vim-autoformat'                 " Autoformat
-Plug 'scrooloose/nerdcommenter'          " Comments
+Plug 'scrooloose/nerdcommenter'               " Comments
 Plug 'benmills/vimux'                         " Vimux
 "Plug 'scrooloose/syntastic'                  "Syntastic
+
 Plug 'benekastah/neomake'                     "Syntastic for neovim
 Plug 'tmhedberg/SimpylFold'                   "Code Folding
 Plug 'justincampbell/vim-eighties'
@@ -332,13 +333,13 @@ nnoremap ds :call DeleteTrailingWS()<cr>
 " 10. VIMGREP
 " ==============================================================================
 " When you press gv you vimgrep after the selected text
-vnoremap <silent> gv :call VisualSelection('gv')<CR>
+vnoremap <silent> <leader>gv :call VisualSelection('gv')<CR>
 
 " Open vimgrep and put the cursor in the right position
-map <leader>vg :vimgrep // **/*.<left><left><left><left><left><left><left>
+map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
 
 " When you press <leader>r you can search and replace the selected text
-vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
+vnoremap <silent> <leader>gr :call VisualSelection('replace')<CR>
 
 " Do :help cope if you are unsure what cope is. It's super useful!
 "
@@ -506,7 +507,7 @@ let g:ctrlp_working_path_mode = 2
 
  "YouCompleteMe Config
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>d  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "Vim Eighties Config
 let g:eighties_enabled = 1
@@ -514,3 +515,27 @@ let g:eighties_minimum_width = 80
 let g:eighties_extra_width = 0 " Increase this if you want some extra room
 let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
 let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [], 'fugitiveblame' is only an example. Takes a comma delimited list of bufnames as strings.
+
+"Vimux Settings
+" Run the current file with rspec
+ map <Leader>vb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+  " Run command without sending a return
+ map <Leader>vn :call VimuxRunCommand("clear; rspec " . bufname("%"), 0)<CR>
+
+ " Prompt for a command to run
+ map <Leader>vp :VimuxPromptCommand<CR>
+
+ " Run last command executed by VimuxRunCommand
+ map <Leader>vl :VimuxRunLastCommand<CR>
+
+ " Inspect runner pane
+ map <Leader>vi :VimuxInspectRunner<CR>
+
+ " Close vim tmux runner opened by VimuxRunCommand
+ map <Leader>vq :VimuxCloseRunner<CR>
+
+ " Interrupt any command running in the runner pane
+ map <Leader>vx :VimuxInterruptRunner<CR>
+
+ " Zoom the runner pane (use <bind-key> z to restore runner pane)
+ map <Leader>vz :call VimuxZoomRunner()<CR>
