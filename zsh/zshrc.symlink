@@ -9,7 +9,7 @@ export REPORTTIME=10
 # define the code directory
 # This is where my code exists and where I want the `c` autocomplete to work from exclusively
 if [[ -d ~/code ]]; then
-    export CODE_DIR=~/code
+    export CODE_DIR=~/Projects
 fi
 
 # source all .zsh files inside of the zsh/ directory
@@ -24,7 +24,7 @@ fi
 autoload -U compinit add-zsh-hook
 compinit
 
-for config ($ZSH/**/*completion.sh) source $config
+#for config ($ZSH/**/*completion.sh) source $config
 
 export EDITOR='nvim'
 
@@ -80,7 +80,7 @@ fi
 
 # Base16 Shell
 # if [ -z "$THEME" ]; then
-    export THEME="base16-atelierlakeside"
+    export THEME="base16-solarized"
 # fi
 if [ -z "$BACKGROUND" ]; then
     export BACKGROUND="dark"
