@@ -518,9 +518,9 @@ let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [],
 
 "Vimux Settings
 " Run the current file with rspec
- map <Leader>vb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+ map <Leader>vb :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
   " Run command without sending a return
- map <Leader>vn :call VimuxRunCommand("clear; rspec " . bufname("%"), 0)<CR>
+ map <Leader>vn :call VimuxRunCommand("clear; python " . bufname("%"), 0)<CR>
 
  " Prompt for a command to run
  map <Leader>vp :VimuxPromptCommand<CR>
