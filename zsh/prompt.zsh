@@ -1,7 +1,5 @@
-# heavily inspired by the wonderful pure theme
-# https://github.com/sindresorhus/pure
+#Mashup of Pygmalion theme and Nick Nisi's theme
 
-# needed to get things like current git branch
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git # You can add hg too if needed: `git hg`
 zstyle ':vcs_info:git*' use-simple true
@@ -10,6 +8,21 @@ zstyle ':vcs_info:git*' formats ' %b' 'x%R'
 zstyle ':vcs_info:git*' actionformats ' %b|%a' 'x%R'
 
 autoload colors && colors
+
+prompt_setup_pygmalion(){
+  ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}"
+  ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+  #ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}⚡%{$reset_color%}"
+  ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+  base_prompt='%{$fg[magenta]%}%n%{$reset_color%}%{$fg[cyan]%}@%{$reset_color%}%{$fg[yellow]%}%m%{$reset_color%}%{$fg[red]%}:%{$reset_color%}%{$fg[cyan]%}%0~%{$reset_color%}%{$fg[red]%}|%{$reset_color%}'
+  post_prompt='%{$fg[cyan]%}⇒%{$reset_color%}  '
+
+  base_prompt_nocolor=$(echo "$base_prompt" | perl -pe "s/%\{[^}]+\}//g")
+  post_prompt_nocolor=$(echo "$post_prompt" | perl -pe "s/%\{[^}]+\}//g")
+
+  precmd_functions+=(prompt_pygmalion_precmd)
+}
 
 git_dirty() {
     # check if we're in a git repo
@@ -48,7 +61,6 @@ git_arrows() {
     echo $arrows
 }
 
-
 # indicate a job (for example, vim) has been backgrounded
 # If there is a job in the background, display a ✱
 suspended_jobs() {
@@ -61,10 +73,24 @@ suspended_jobs() {
     fi
 }
 
-# precmd() {
-    # vcs_info
-    # print -P '\n%F{205}%~'
-# }
+prompt_pygmalion_precmd(){
+  vcs_info
+  #local gitinfo="%F{green}${vcs_info_msg_0_:1}%f"
+  local gitinfo_nocolor=$(echo "$gitinfo" | perl -pe "s/%\{[^}]+\}//g")
+  local exp_nocolor="$(print -P \"$base_prompt_nocolor$gitinfo_nocolor$post_prompt_nocolor\")"
+  local prompt_length=${#exp_nocolor}
+  local gitdirty="$(git_dirty)"
+  local gitarrows="$(git_arrows)"
+  local suspendedjobs="$(suspended_jobs)"
+  local venv="(${VIRTUAL_ENV##*/})"
 
-#export PROMPT='%(?.%F{205}.%F{red})❯%f '
-export RPROMPT='`git_arrows``suspended_jobs`'
+  local nl=""
+
+  if [[ $prompt_length -gt 40 ]]; then
+    nl=$'\n%{\r%}';
+  fi
+  PROMPT="$base_prompt%F{green}$venv%f $nl$post_prompt"
+  RPROMPT="$gitdirty%F{241}$vcs_info_msg_0_%f $gitarrows$suspendedjobs"
+}
+
+prompt_setup_pygmalion
