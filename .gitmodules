@@ -1,6 +1,8 @@
 [submodule ".config/base16-shell"]
 	path = .config/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
+    ignore = dirty
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+    ignore = dirty
