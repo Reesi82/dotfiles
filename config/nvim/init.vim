@@ -56,7 +56,7 @@ Plug 'benmills/vimux'                         " Vimux
 "Plug 'scrooloose/syntastic'                  "Syntastic
 
 Plug 'benekastah/neomake'                     "Syntastic for neovim
-Plug 'tmhedberg/SimpylFold'                   "Code Folding
+"Plug 'tmhedberg/SimpylFold'                   "Code Folding
 Plug 'justincampbell/vim-eighties'
 
 " Language support
@@ -517,8 +517,8 @@ let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
 let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [], 'fugitiveblame' is only an example. Takes a comma delimited list of bufnames as strings.
 
 "Vimux Settings
-" Run the current file with rspec
- map <Leader>vb :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
+" Run the current file with python
+ map <Leader>vv :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
   " Run command without sending a return
  map <Leader>vn :call VimuxRunCommand("clear; python " . bufname("%"), 0)<CR>
 
