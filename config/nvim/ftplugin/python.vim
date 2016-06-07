@@ -1,12 +1,18 @@
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-    \ set foldmethod=indent
+au BufNewFile,BufRead *.py setlocal tabstop=4
+    
+au BufNewFile,BufRead *.py setlocal softtabstop=4
+    
+au BufNewFile,BufRead *.py setlocal shiftwidth=4
+    
+au BufNewFile,BufRead *.py setlocal textwidth=79
+    
+au BufNewFile,BufRead *.py setlocal expandtab
+    
+au BufNewFile,BufRead *.py setlocal autoindent
+    
+au BufNewFile,BufRead *.py setlocal fileformat=unix
+    
+au BufNewFile,BufRead *.py setlocal foldmethod=indent
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
