@@ -28,6 +28,7 @@ set textwidth=80
 
 " I map leader to \ and space to the leader
 let mapleader='\'
+let maplocalleader=','
 map <space> <leader>
 map <space><space> <leader><leader>
 
@@ -506,7 +507,8 @@ let g:ctrlp_custom_ignore = {
  autocmd! BufWritePost * Neomake
 
  "Jedi Config
- let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#use_splits_not_buffers = "right"
+nnoremap <silent> <buffer> <localleader>r :call jedi#rename()<cr>
 
  "Neocompelte config
 let g:deoplete#enable_at_startup = 1

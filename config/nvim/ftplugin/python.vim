@@ -35,7 +35,7 @@ noremap <buffer> <LocalLeader>p :IPython<CR>
 " Close whichever shell is running.
 noremap <buffer> <LocalLeader>q :ScreenQuit<CR>
 " Send current line to python and move to next line.
-noremap <buffer> <LocalLeader>c V:ScreenSend<CR>j
+noremap <buffer> <LocalLeader>v V:ScreenSend<CR>j
 " Send visual selection to python and move to next line.
 noremap <buffer> <LocalLeader>b :ScreenSend<CR>`>0j
 " Send a <CR> to ipython.
