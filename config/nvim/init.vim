@@ -509,7 +509,8 @@ let g:ctrlp_custom_ignore = {
  let g:jedi#use_splits_not_buffers = "right"
 
  "Neocompelte config
- let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "Vim Eighties Config
 let g:eighties_enabled = 1
