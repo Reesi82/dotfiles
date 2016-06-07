@@ -52,9 +52,8 @@ Plug 'majutsushi/tagbar'                      " Tagbar
 Plug 'ctrlpvim/ctrlp.vim'                     " Ctrl-P
 Plug 'Chiel92/vim-autoformat'                 " Autoformat
 Plug 'scrooloose/nerdcommenter'               " Comments
-"Plug 'benmills/vimux'                         " Vimux
 Plug 'ervandew/screen'                        "
-"Plug 'scrooloose/syntastic'                  "Syntastic
+Plug 'Shougo/deoplete.nvim'                 "
 
 Plug 'benekastah/neomake'                     "Syntastic for neovim
 "Plug 'tmhedberg/SimpylFold'                   "Code Folding
@@ -63,7 +62,7 @@ Plug 'justincampbell/vim-eighties'
 " Language support
 Plug 'sirtaj/vim-openscad'                    " OpenScad
 Plug 'vim-scripts/indentpython.vim'           " Python
-Plug 'Valloric/YouCompleteMe'                 " Python Autocomplete
+Plug 'davidhalter/jedi-vim'
 
 if has("win32") || has("win64")
     "Plug 'PProvost/vim-ps1'                  " PowerShell
@@ -504,12 +503,13 @@ let g:ctrlp_custom_ignore = {
 " search the nearest ancestor that contains .git, .hg, .svn
 "let g:ctrlp_working_path_mode = 2
 
-
  autocmd! BufWritePost * Neomake
 
- "YouCompleteMe Config
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>d  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+ "Jedi Config
+ let g:jedi#use_splits_not_buffers = "right"
+
+ "Neocompelte config
+ let g:deoplete#enable_at_startup = 1
 
 "Vim Eighties Config
 let g:eighties_enabled = 1
