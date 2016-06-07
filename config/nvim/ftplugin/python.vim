@@ -25,13 +25,13 @@ endif
 " IPython3 tmux integration
 let g:ScreenImpl = "Tmux"
 " Open an IPython3 shell.
-map <LocalLeader>p :ScreenShell! ipython<CR>
+map <LocalLeader>p :ScreenShell ipython<CR>
 " Close whichever shell is running.
 map <LocalLeader>q :ScreenQuit<CR>
 " Send current line to python and move to next line.
-map <LocalLeader>rl V:ScreenSend<CR>j
+map <LocalLeader>bl V:ScreenSend<CR>j
 " Send visual selection to python and move to next line.
-map <LocalLeader>v :ScreenSend<CR>`>0j
+map <LocalLeader>bs :ScreenSend<CR>`>0j
 " Send a <CR> to ipython.
 map <LocalLeader>a :call g:ScreenShellSend("\r")<CR>
 " Clear the screen.
@@ -87,7 +87,7 @@ endfunction
 map <LocalLeader>l :call GetLen()<CR>
 "
 " run file
-nnoremap  <buffer> <leader>r :exec '!python' shellescape(@%, 1)<cr>
+nnoremap  <buffer> <leader>v :exec '!python' shellescape(@%, 1)<cr>
 "   misc functinons
 " gets the selected text in visual mode
 function! GetVisual()
