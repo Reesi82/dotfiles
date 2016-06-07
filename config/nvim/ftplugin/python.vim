@@ -29,9 +29,9 @@ map <LocalLeader>p :ScreenShell ipython<CR>
 " Close whichever shell is running.
 map <LocalLeader>q :ScreenQuit<CR>
 " Send current line to python and move to next line.
-map <LocalLeader>bl V:ScreenSend<CR>j
+map <LocalLeader>c V:ScreenSend<CR>j
 " Send visual selection to python and move to next line.
-map <LocalLeader>bs :ScreenSend<CR>`>0j
+map <LocalLeader>b :ScreenSend<CR>`>0j
 " Send a <CR> to ipython.
 map <LocalLeader>a :call g:ScreenShellSend("\r")<CR>
 " Clear the screen.
@@ -87,7 +87,7 @@ endfunction
 map <LocalLeader>l :call GetLen()<CR>
 "
 " run file
-nnoremap  <buffer> <leader>v :exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <leader>v :silent exec '!python' shellescape(@%, 1)<cr>
 "   misc functinons
 " gets the selected text in visual mode
 function! GetVisual()
