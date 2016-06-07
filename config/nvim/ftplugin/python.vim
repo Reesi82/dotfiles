@@ -25,58 +25,58 @@ endif
 " IPython3 tmux integration
 let g:ScreenImpl = "Tmux"
 " Open an IPython3 shell.
-map <LocalLeader>p :ScreenShell ipython<CR>
+noremap <buffer> <LocalLeader>p :IPython<CR>
 " Close whichever shell is running.
-map <LocalLeader>q :ScreenQuit<CR>
+noremap <buffer> <LocalLeader>q :ScreenQuit<CR>
 " Send current line to python and move to next line.
-map <LocalLeader>c V:ScreenSend<CR>j
+noremap <buffer> <LocalLeader>c V:ScreenSend<CR>j
 " Send visual selection to python and move to next line.
-map <LocalLeader>b :ScreenSend<CR>`>0j
+noremap <buffer> <LocalLeader>b :ScreenSend<CR>`>0j
 " Send a <CR> to ipython.
-map <LocalLeader>a :call g:ScreenShellSend("\r")<CR>
+noremap <buffer> <LocalLeader>a :call g:ScreenShellSend("\r")<CR>
 " Clear the screen.
-map <LocalLeader>L
+noremap <buffer> <LocalLeader>L
                         \ :call g:ScreenShellSend('!clear')<CR>
 " Start a time  block to execute code in.
-map <LocalLeader>t
+noremap <buffer> <LocalLeader>t
                         \ :call g:ScreenShellSend('%%time')<CR>
 " Start a timeit block to execute code in.
-map <LocalLeader>tt
+noremap <buffer> <LocalLeader>tt
                         \ :call g:ScreenShellSend('%%timeit')<CR>
 " Start a debugger repl to execute code in.
-map <LocalLeader>db
+noremap <buffer> <LocalLeader>db
                         \ :call g:ScreenShellSend('%%debug')<CR>
 " Start a profiling block to execute code in.
-map <LocalLeader>pr
+noremap <buffer> <LocalLeader>pr
                         \ :call g:ScreenShellSend('%%prun')<CR>
 " Print the current working directory.
-map <LocalLeader>gw
+noremap <buffer> <LocalLeader>gw
                         \ :call g:ScreenShellSend('!pwd')<CR>
 " Set working directory to current file's folder.
 function! SetWD()
         let wd = '!cd ' . expand('%:p:h')
         :call g:ScreenShellSend(wd)
 endfunction
-map <LocalLeader>sw :call SetWD()<CR>
+noremap <buffer> <LocalLeader>sw :call SetWD()<CR>
 " Get ipython help for word under cursor. Complement it with Shift + K.
 function! GetHelp()
         let w = expand("<cword>") . "??"
         :call g:ScreenShellSend(w)
 endfunction
-map <LocalLeader>h :call GetHelp()<CR>
+noremap <buffer> <LocalLeader>h :call GetHelp()<CR>
 " Get `dir` help for word under cursor.
 function! GetDir()
         let w = "dir(" . expand("<cword>") . ")"
         :call g:ScreenShellSend(w)
 endfunction
-map <LocalLeader>d :call GetDir()<CR>
+noremap <buffer> <LocalLeader>d :call GetDir()<CR>
 " Get `?` help for visual selected word.
 function! GetHelpMagic()
         let foo_tmp =  GetVisual()
         let w = "?".foo_tmp
         :call g:ScreenShellSend(w)
 endfunction
-map <LocalLeader>dc :call GetHelpMagic()<CR>
+noremap <buffer> <LocalLeader>dc :call GetHelpMagic()<CR>
 
 " Get len help for word under cursor.
 function! GetLen()
@@ -84,10 +84,10 @@ function! GetLen()
         :call g:ScreenShellSend(w)
         echo  w
 endfunction
-map <LocalLeader>l :call GetLen()<CR>
+noremap <buffer> <LocalLeader>l :call GetLen()<CR>
 "
 " run file
-nnoremap <buffer> <leader>v :silent exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <leader>v :exec '!python' shellescape(@%, 1)<cr>
 "   misc functinons
 " gets the selected text in visual mode
 function! GetVisual()
