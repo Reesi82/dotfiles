@@ -52,7 +52,8 @@ Plug 'majutsushi/tagbar'                      " Tagbar
 Plug 'ctrlpvim/ctrlp.vim'                     " Ctrl-P
 Plug 'Chiel92/vim-autoformat'                 " Autoformat
 Plug 'scrooloose/nerdcommenter'               " Comments
-Plug 'benmills/vimux'                         " Vimux
+"Plug 'benmills/vimux'                         " Vimux
+Plug 'ervandew/screen'                        "
 "Plug 'scrooloose/syntastic'                  "Syntastic
 
 Plug 'benekastah/neomake'                     "Syntastic for neovim
@@ -260,12 +261,15 @@ map <leader>bd :Bclose<cr>
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
 
-ve between matching braces
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
+map <leader>th :tabn<cr>
+map <leader>tl :tabp<cr>
+map <leader>tj :tabfirst<cr>
+map <leader>tk :tablast<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -352,8 +356,8 @@ vnoremap <silent> <leader>gr :call VisualSelection('replace')<CR>
 " To go to the previous search results do:
 "   <leader>p
 
-map <leader>n :cn<cr>
-map <leader>p :cp<cr>
+" map <leader>n :cn<cr>
+" map <leader>p :cp<cr>
 
 " ==============================================================================
 " 11. Spell Checking
@@ -365,6 +369,7 @@ map <leader>ss :setlocal spell!<cr>
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
+map <leader>sr zw
 map <leader>s? z=
 
 " ==============================================================================
@@ -372,9 +377,6 @@ map <leader>s? z=
 " ==============================================================================
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
-" Quickly open a buffer for scripbble
-map <leader>q :e ~/buffer<cr>
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
@@ -515,27 +517,3 @@ let g:eighties_minimum_width = 80
 let g:eighties_extra_width = 0 " Increase this if you want some extra room
 let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
 let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [], 'fugitiveblame' is only an example. Takes a comma delimited list of bufnames as strings.
-
-"Vimux Settings
-" Run the current file with python
- map <Leader>vv :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
-  " Run command without sending a return
- map <Leader>vn :call VimuxRunCommand("clear; python " . bufname("%"), 0)<CR>
-
- " Prompt for a command to run
- map <Leader>vp :VimuxPromptCommand<CR>
-
- " Run last command executed by VimuxRunCommand
- map <Leader>vl :VimuxRunLastCommand<CR>
-
- " Inspect runner pane
- map <Leader>vi :VimuxInspectRunner<CR>
-
- " Close vim tmux runner opened by VimuxRunCommand
- map <Leader>vq :VimuxCloseRunner<CR>
-
- " Interrupt any command running in the runner pane
- map <Leader>vx :VimuxInterruptRunner<CR>
-
- " Zoom the runner pane (use <bind-key> z to restore runner pane)
- map <Leader>vz :call VimuxZoomRunner()<CR>
