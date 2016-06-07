@@ -87,7 +87,9 @@ endfunction
 noremap <buffer> <LocalLeader>l :call GetLen()<CR>
 "
 " run file
-nnoremap <buffer> <leader>v :exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <leader>v :silent exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <F5>
+                        \ :call g:ScreenShellSend("%run ".expand('%:t'))<CR>
 "   misc functinons
 " gets the selected text in visual mode
 function! GetVisual()
