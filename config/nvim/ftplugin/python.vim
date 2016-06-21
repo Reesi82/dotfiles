@@ -1,5 +1,5 @@
 au BufNewFile,BufRead *.py setlocal tabstop=4
-    
+
 au BufNewFile,BufRead *.py setlocal softtabstop=4
     
 au BufNewFile,BufRead *.py setlocal shiftwidth=4
@@ -12,7 +12,7 @@ au BufNewFile,BufRead *.py setlocal autoindent
     
 au BufNewFile,BufRead *.py setlocal fileformat=unix
     
-au BufNewFile,BufRead *.py setlocal foldmethod=indent
+au BufNewFile,BufRead *.py setlocal foldmethod=manual
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
@@ -32,6 +32,7 @@ endif
 let g:ScreenImpl = "Tmux"
 " Open an IPython3 shell.
 noremap <buffer> <LocalLeader>p :IPython<CR>
+noremap <buffer> <LocalLeader>p2 :ScreenShell ipython2<CR>
 " Close whichever shell is running.
 noremap <buffer> <LocalLeader>q :ScreenQuit<CR>
 " Send current line to python and move to next line.
@@ -94,6 +95,7 @@ noremap <buffer> <LocalLeader>l :call GetLen()<CR>
 "
 " run file
 nnoremap <buffer> <leader>v :silent exec '!python' shellescape(@%, 1)<cr>
+nnoremap <buffer> <LocalLeader>r :silent exec '!python2' shellescape(@%, 1)<cr>
 nnoremap <buffer> <F5>
                         \ :call g:ScreenShellSend("%run ".expand('%:t'))<CR>
 "   misc functinons
