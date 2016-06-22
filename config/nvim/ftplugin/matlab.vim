@@ -1,0 +1,35 @@
+au BufNewFile,BufRead *.py setlocal tabstop=4
+au BufNewFile,BufRead *.py setlocal softtabstop=4
+au BufNewFile,BufRead *.py setlocal shiftwidth=4
+au BufNewFile,BufRead *.py setlocal textwidth=79
+au BufNewFile,BufRead *.py setlocal expandtab
+au BufNewFile,BufRead *.py setlocal autoindent
+au BufNewFile,BufRead *.py setlocal fileformat=unix
+au BufNewFile,BufRead *.py setlocal foldmethod=manual
+
+
+" Octave tmux integration
+let g:ScreenImpl = "Tmux"
+" Open an Octavee shell.
+noremap <buffer> <LocalLeader>p :ScreenShell octave-cli<CR>
+" Close whichever shell is running.
+noremap <buffer> <LocalLeader>q :ScreenQuit<CR>
+" Send current line to octave and move to next line.
+noremap <buffer> <LocalLeader>b V:ScreenSend<CR>j
+" Send visual selection to octave and move to next line.
+noremap <buffer> <LocalLeader>v :ScreenSend<CR>`>0j
+" Send file to octave
+noremap <buffer> <LocalLeader>r maggVG:ScreenSend<CR>`a
+" Send a <CR> to octave.
+noremap <buffer> <LocalLeader>a :call g:ScreenShellSend("\r")<CR>
+
+" gets the selected text in visual mode
+function! GetVisual()
+        " Why is this not a built-in Vim script function?!
+        let [lnum1, col1] = getpos("'<")[1:2]
+        let [lnum2, col2] = getpos("'>")[1:2]
+        let lines = getline(lnum1, lnum2)
+        let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+        let lines[0] = lines[0][col1 - 1:]
+        return join(lines, "\n")
+endfunction

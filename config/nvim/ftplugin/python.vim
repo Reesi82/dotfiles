@@ -1,17 +1,10 @@
 au BufNewFile,BufRead *.py setlocal tabstop=4
-
 au BufNewFile,BufRead *.py setlocal softtabstop=4
-    
 au BufNewFile,BufRead *.py setlocal shiftwidth=4
-    
 au BufNewFile,BufRead *.py setlocal textwidth=79
-    
 au BufNewFile,BufRead *.py setlocal expandtab
-    
 au BufNewFile,BufRead *.py setlocal autoindent
-    
 au BufNewFile,BufRead *.py setlocal fileformat=unix
-    
 au BufNewFile,BufRead *.py setlocal foldmethod=manual
 
 " Add the virtualenv's site-packages to vim path
