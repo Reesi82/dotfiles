@@ -1,11 +1,11 @@
-au BufNewFile,BufRead *.py setlocal tabstop=4
-au BufNewFile,BufRead *.py setlocal softtabstop=4
-au BufNewFile,BufRead *.py setlocal shiftwidth=4
-au BufNewFile,BufRead *.py setlocal textwidth=79
-au BufNewFile,BufRead *.py setlocal expandtab
-au BufNewFile,BufRead *.py setlocal autoindent
-au BufNewFile,BufRead *.py setlocal fileformat=unix
-au BufNewFile,BufRead *.py setlocal foldmethod=manual
+au BufNewFile,BufRead *.m setlocal tabstop=4
+au BufNewFile,BufRead *.m setlocal softtabstop=4
+au BufNewFile,BufRead *.m setlocal shiftwidth=4
+au BufNewFile,BufRead *.m setlocal textwidth=79
+au BufNewFile,BufRead *.m setlocal expandtab
+au BufNewFile,BufRead *.m setlocal autoindent
+au BufNewFile,BufRead *.m setlocal fileformat=unix
+au BufNewFile,BufRead *.m setlocal foldmethod=manual
 
 
 " Octave tmux integration
@@ -19,7 +19,13 @@ noremap <buffer> <LocalLeader>b V:ScreenSend<CR>j
 " Send visual selection to octave and move to next line.
 noremap <buffer> <LocalLeader>v :ScreenSend<CR>`>0j
 " Send file to octave
-noremap <buffer> <LocalLeader>r maggVG:ScreenSend<CR>`a
+noremap <buffer> <LocalLeader>f maggVG:ScreenSend<CR>`a
+"Run File
+nnoremap <buffer> <F5>
+                        \ :call g:ScreenShellSend(expand('%:r'))<CR>
+nnoremap <buffer> <LocalLeader>r
+                        \ :call g:ScreenShellSend(expand('%:r'))<CR>
+
 " Send a <CR> to octave.
 noremap <buffer> <LocalLeader>a :call g:ScreenShellSend("\r")<CR>
 
