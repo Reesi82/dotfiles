@@ -54,16 +54,17 @@ Plug 'ctrlpvim/ctrlp.vim'                     " Ctrl-P
 Plug 'Chiel92/vim-autoformat'                 " Autoformat
 Plug 'scrooloose/nerdcommenter'               " Comments
 Plug 'ervandew/screen'                        "
-Plug 'Shougo/deoplete.nvim'                 "
+Plug 'Shougo/deoplete.nvim'                   "
 
 Plug 'benekastah/neomake'                     "Syntastic for neovim
-"Plug 'tmhedberg/SimpylFold'                   "Code Folding
+"Plug 'tmhedberg/SimpylFold'                  "Code Folding
 Plug 'justincampbell/vim-eighties'
 
 " Language support
 Plug 'sirtaj/vim-openscad'                    " OpenScad
 Plug 'vim-scripts/indentpython.vim'           " Python
 Plug 'davidhalter/jedi-vim'
+Plug 'jvirtanen/vim-octave'                   " Octave
 
 if has("win32") || has("win64")
     "Plug 'PProvost/vim-ps1'                  " PowerShell
