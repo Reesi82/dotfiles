@@ -2,3 +2,23 @@
 	path = .config/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
     ignore = dirty
+[submodule "tmux/config/plugins/tmux-continuum"]
+	path = tmux/config/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum.git
+    ignore = dirty
+[submodule "tmux/config/plugins/tmux-copycat"]
+	path = tmux/config/plugins/tmux-copycat
+	url = https://github.com/tmux-plugins/tmux-copycat.git
+    ignore = dirty
+[submodule "tmux/config/plugins/tmux-resurrect"]
+	path = tmux/config/plugins/tmux-resurrect
+	url = git@github.com:tmux-plugins/tmux-resurrect.git
+    ignore = dirty
+[submodule "tmux/config/plugins/tmux-yank"]
+	path = tmux/config/plugins/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank.git
+    ignore = dirty
+[submodule "tmux/config/plugins/tpm"]
+	path = tmux/config/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
+    ignore = dirty
