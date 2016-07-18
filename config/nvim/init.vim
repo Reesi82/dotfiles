@@ -58,6 +58,7 @@ Plug 'Shougo/deoplete.nvim'                   "
 
 Plug 'benekastah/neomake'                     "Syntastic for neovim
 "Plug 'tmhedberg/SimpylFold'                  "Code Folding
+Plug 'Yggdroot/indentLine'                    "Indent Lines
 Plug 'justincampbell/vim-eighties'
 
 " Language support
@@ -519,3 +520,6 @@ let g:eighties_minimum_width = 80
 let g:eighties_extra_width = 0 " Increase this if you want some extra room
 let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
 let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [], 'fugitiveblame' is only an example. Takes a comma delimited list of bufnames as strings.
+
+"Indent Line Settings
+let g:indentLine_char = '│'
