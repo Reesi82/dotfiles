@@ -7,11 +7,6 @@ set -g history-limit 20000
 # automatically renumber tmux windows
 set -g renumber-windows on
 
-#Automatically start tmux on boot
-set -g @continuum-boot 'on'
-#Tmux Continuum
-set -g @continuum-restore 'on'
-
 # unbind default prefix and set it to Ctrl+a
 unbind C-b
 set -g prefix C-a
@@ -126,8 +121,8 @@ source ~/.dotfiles/tmux/theme.sh
 
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-yank'
 
@@ -135,6 +130,18 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'github_username/plugin_name'
 # set -g @plugin 'git@github.com/user/plugin'
 # set -g @plugin 'git@bitbucket.com/user/plugin'
+#
+
+# Plugin Settings
+
+#Automatically start tmux on boot
+set -g @continuum-boot 'on'
+#Tmux Continuum
+set -g @continuum-restore 'on'
+set -g @continuum-save-interval '10'
+set -g @resurrect-strategy-vim 'session'
+set -g @resurrect-strategy-nvim 'session'
+set -g @resurrect-capture-pane-contents 'on'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
