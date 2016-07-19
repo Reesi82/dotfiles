@@ -65,6 +65,7 @@ Plug 'justincampbell/vim-eighties'
 Plug 'sirtaj/vim-openscad'                    " OpenScad
 Plug 'vim-scripts/indentpython.vim'           " Python
 Plug 'davidhalter/jedi-vim'
+Plug 'sophacles/vim-processing'               " Processing
 Plug 'jvirtanen/vim-octave'                   " Octave
 
 if has("win32") || has("win64")
