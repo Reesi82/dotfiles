@@ -67,6 +67,7 @@ Plug 'vim-scripts/indentpython.vim'           " Python
 Plug 'davidhalter/jedi-vim'
 Plug 'sophacles/vim-processing'               " Processing
 Plug 'jvirtanen/vim-octave'                   " Octave
+Plug 'jalvesaq/Nvim-R'
 
 if has("win32") || has("win64")
     "Plug 'PProvost/vim-ps1'                  " PowerShell
