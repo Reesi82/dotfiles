@@ -42,7 +42,7 @@ setw -g pane-base-index 1
 
 set-option -g set-titles on
 set-option -g set-titles-string "#T - #W"
-set-window-option -g automatic-rename on
+set-window-option -g automatic-rename off
 
 ######################
 #### Key Bindings ####
@@ -109,6 +109,17 @@ bind -t vi-copy 'y' copy-selection
 bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
 
+# Plugin Settings
+
+#Automatically start tmux on boot
+# set -g @continuum-boot 'on'
+#Tmux Continuum
+set -g @resurrect-capture-pane-contents 'on'
+set -g @resurrect-strategy-nvim 'session'
+set -g @resurrect-save 'S'
+set -g @resurrect-restore 'R'
+set -g @continuum-restore 'on'
+
 ##############################
 ### Color & Style Settings ###
 ##############################
@@ -131,17 +142,6 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'git@github.com/user/plugin'
 # set -g @plugin 'git@bitbucket.com/user/plugin'
 #
-
-# Plugin Settings
-
-#Automatically start tmux on boot
-set -g @continuum-boot 'on'
-#Tmux Continuum
-# set -g @continuum-restore 'on'
-set -g @continuum-save-interval '10'
-set -g @resurrect-strategy-vim 'session'
-set -g @resurrect-strategy-nvim 'session'
-set -g @resurrect-capture-pane-contents 'on'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
