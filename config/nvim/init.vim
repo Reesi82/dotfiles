@@ -26,7 +26,7 @@ set history=1000
 "Set the width of a page
 set textwidth=80
 
-" I map leader to \ and space to the leader
+"Map leader to \ and space to the leader
 let mapleader='\'
 let maplocalleader=','
 map <space> <leader>
@@ -53,25 +53,21 @@ Plug 'majutsushi/tagbar'                      " Tagbar
 Plug 'ctrlpvim/ctrlp.vim'                     " Ctrl-P
 Plug 'Chiel92/vim-autoformat'                 " Autoformat
 Plug 'scrooloose/nerdcommenter'               " Comments
-Plug 'ervandew/screen'                        "
-Plug 'Shougo/deoplete.nvim'                   "
+Plug 'ervandew/screen'                        " Tmux
+Plug 'Shougo/deoplete.nvim'                   " Autocompletion
 
-Plug 'benekastah/neomake'                     "Syntastic for neovim
-"Plug 'tmhedberg/SimpylFold'                  "Code Folding
-Plug 'Yggdroot/indentLine'                    "Indent Lines
-Plug 'justincampbell/vim-eighties'
+Plug 'benekastah/neomake'                     " Syntastic for neovim
+Plug 'tmhedberg/SimpylFold'                   " Code Folding
+Plug 'Yggdroot/indentLine'                    " Indent Lines
+Plug 'justincampbell/vim-eighties'            " Auto Resize splits
 
 " Language support
 Plug 'sirtaj/vim-openscad'                    " OpenScad
 Plug 'vim-scripts/indentpython.vim'           " Python
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'                   " Autocompletion
 Plug 'sophacles/vim-processing'               " Processing
 Plug 'jvirtanen/vim-octave'                   " Octave
 Plug 'jalvesaq/Nvim-R'
-
-if has("win32") || has("win64")
-    "Plug 'PProvost/vim-ps1'                  " PowerShell
-end
 
 " Colorschemes
 Plug 'chriskempson/base16-vim'
@@ -134,7 +130,7 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Always show which more are we in
+" Always show which mode we are in
 set showmode
 
 " Always show statusbr
@@ -161,16 +157,8 @@ set splitright
 " highlight column where the cursor is
 "set cursorcolumn
 
-if has("win32") || has("win64")
-    " Use ~x on an English Windows version or ~n for French.
-    au GUIEnter * simalt ~x
-endif
-
-" Finally, to make toggling easier, I just have to map an unused key, such
-" as F5. This mapping will work both in Normal and in Insert mode. By
-" pressing this key, relative numbers are automatically toggled.
+"Toggle Relative Number
 nmap <F6> :call ToggleRelativeNumber()<CR>
-imap <F6> <Esc>:call ToggleRelativeNumber()<CR>a
 
 " ==============================================================================
 " 4. COLORS AND FONTS
@@ -246,8 +234,8 @@ map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
 
-"Move between matching braces
-"noremap % v%
+" Move between matching braces
+noremap % v%
 
 "Source and edit .vimrc without reload
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -310,13 +298,6 @@ nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-if has("mac") || has("macunix")
-    nmap <D-j> <M-j>
-    nmap <D-k> <M-k>
-    vmap <D-j> <M-j>
-    vmap <D-k> <M-k>
-endif
 
 "Autoformat
 noremap <F3> :Autoformat<CR>
@@ -383,7 +364,7 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " ==============================================================================
 " 13. HELPER FUNCTIONS

@@ -40,6 +40,6 @@ function g() {
         git $@
     else
         # otherwise, run git status
-        git s
+        git status
     fi
 }

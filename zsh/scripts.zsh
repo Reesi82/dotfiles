@@ -2,6 +2,8 @@
 # SCRIPTS
 #===============================================================================
 
+if [ -e ~/.localscripts ]; then; source ~/.localscripts; fi
+
 curlto(){
 if [ ! -d "$2" ]; then
   mkdir "$2"
@@ -30,5 +32,33 @@ done
 cd -
 }
 
-if [ -e ~/.scripts ]; then; source ~/.scripts; fi
+pip-update()
+{
+    pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install -U
+}
 
+gpip(){
+   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
+getinode(){
+ echo $(ls -li "$1" | grep -o -m 1 '[0-9][0-9]*' | head -1)
+}
+
+findlinks(){
+local inode=$(getinode "$1")
+find . -xdev -inum $inode
+while shift && [ -n "$1" ]; do
+  inode=$(getinode "$1")
+  find . -xdev -inum $inode
+done
+}
+
+dellinks(){
+local inode=$(getinode "$1")
+find . -xdev -inum $inode | xargs rm
+while shift && [ -n "$1" ]; do
+  inode=$(getinode "$1")
+  find . -xdev -inum $inode | xargs rm
+done
+}

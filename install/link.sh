@@ -71,5 +71,3 @@ for file in "${!vimfiles[@]}"; do
         ln -s ${vimfiles[$file]} $file
     fi
 done
-
-

@@ -3,7 +3,7 @@
 	name = Reesi82
 	email = kristofnemeth12@hotmail.com
 [github]
-    user = nicknisi
+    user = Reesi82
 [init]
     templatedir = ~/.dotfiles/git/templates
 [alias]
