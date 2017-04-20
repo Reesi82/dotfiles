@@ -45,7 +45,7 @@ else
 end
 
 " Plug-ins
-Plug 'scrooloose/nerdtree'                    "NERDTree
+" Plug 'scrooloose/nerdtree'                    "NERDTree
 Plug 'tpope/vim-fugitive'                     " Fugitive
 Plug 'vim-airline/vim-airline'                " Airline
 Plug 'vim-airline/vim-airline-themes'         " themes for vim-airline
@@ -456,14 +456,14 @@ endfunction
 "===============================================================================
 " 14. PLUGIN SETTINGS
 "===============================================================================
-" close NERDTree after a file is opened
-let g:NERDTreeQuitOnOpen=0
-" show hidden files in NERDTree
-let NERDTreeShowHidden=1
-" Toggle NERDTree
-nmap <silent> <leader>k :NERDTreeToggle<cr>
-" expand to the path of the file in the current buffer
-nmap <silent> <leader>y :NERDTreeFind<cr>
+" " close NERDTree after a file is opened
+" let g:NERDTreeQuitOnOpen=1
+" " show hidden files in NERDTree
+" let NERDTreeShowHidden=1
+" " Toggle NERDTree
+" nmap <silent> <leader>k :NERDTreeToggle<cr>
+" " expand to the path of the file in the current buffer
+" nmap <silent> <leader>y :NERDTreeFind<cr>
 
 " Nerd Commenter Settings
 
