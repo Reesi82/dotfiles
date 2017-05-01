@@ -4,8 +4,6 @@
 	email = kristofnemeth12@hotmail.com
 [github]
     user = Reesi82
-[init]
-    templatedir = ~/.dotfiles/git/templates
 [alias]
     # list all aliases
     la = "!git config -l | grep alias | cut -c 7-"
@@ -24,16 +22,6 @@
     conf = "!git s | grep ^U"
 
     l = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-
-    # show what I did today
-    day = "!sh -c 'git log --reverse --no-merges --branches=* --date=local --after=\"yesterday 11:59PM\" --author=\"`git config --get user.name`\"'"
-
-    # order files by number of commits, ascending
-    # Written by Corey Haines
-    # Scriptified by Gary Bernhardt
-    # Show churn for a time range:
-    #   $ git churn --since='1 month ago'
-    churn = "!f() { git log --all -M -C --name-only --format='format:' \"$@\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g; }; f"
 
     # show all deleted files in the repo
     deleted = "!git log --diff-filter=D --summary | grep delete"
@@ -88,14 +76,6 @@
     # remove grep - Remove found files that are NOT under version control
     rg = "!sh -c 'git ls-files --others --exclude-standard | grep $1 | xargs rm' -"
 
-    # Kaleidoscope commands
-    dkal = difftool -y -t Kaleidoscope
-    mkal = mergetool -y -t Kaleidoscope
-    remotes = remote -v
-
-    # check out a local copy of a PR. https://gist.github.com/gnarf/5406589
-    pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-    pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 [color]
     diff = auto
     status = auto
@@ -143,13 +123,6 @@
 [grep]
     extendRegexp = true
     lineNumber = true
-[credential]
-	helper = osxkeychain
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
 [rebase]
 	instructionFormat = "[%an - %ar] %s"
 [pager]

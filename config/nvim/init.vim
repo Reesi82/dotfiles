@@ -57,7 +57,7 @@ Plug 'ervandew/screen'                        " Tmux
 Plug 'Shougo/deoplete.nvim'                   " Autocompletion
 
 Plug 'benekastah/neomake'                     " Syntastic for neovim
-Plug 'tmhedberg/SimpylFold'                   " Code Folding
+"Plug 'tmhedberg/SimpylFold'                   " Code Folding
 Plug 'Yggdroot/indentLine'                    " Indent Lines
 Plug 'justincampbell/vim-eighties'            " Auto Resize splits
 
@@ -67,7 +67,8 @@ Plug 'vim-scripts/indentpython.vim'           " Python
 Plug 'davidhalter/jedi-vim'                   " Autocompletion
 Plug 'sophacles/vim-processing'               " Processing
 Plug 'jvirtanen/vim-octave'                   " Octave
-Plug 'jalvesaq/Nvim-R'
+Plug 'jalvesaq/Nvim-R'                        " R
+Plug 'lervag/vimtex'                          " LaTeX
 
 " Colorschemes
 Plug 'chriskempson/base16-vim'
