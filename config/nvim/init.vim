@@ -190,6 +190,7 @@ set nobackup
 set nowb
 set noswapfile
 filetype plugin on
+filetype indent on
 " ==============================================================================
 " 6. TEXT SETTINGS
 " ==============================================================================
@@ -256,7 +257,7 @@ map <leader>ba :1,1000 bd!<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabm 
+map <leader>tm :tabm
 map <leader>th :tabn<cr>
 map <leader>tl :tabp<cr>
 map <leader>tj :tabfirst<cr>
@@ -342,7 +343,11 @@ vnoremap <silent> <leader>gr :call VisualSelection('replace')<CR>
 
 " map <leader>n :cn<cr>
 " map <leader>p :cp<cr>
-
+"
+" IMPORTANT: grep will sometimes skip displaying the file name if you
+" search in a singe file. This will confuse Latex-Suite. Set your grep
+" program to always generate a file-name.
+set grepprg=grep\ -nH\ $*
 " ==============================================================================
 " 11. Spell Checking
 " ==============================================================================
@@ -507,3 +512,7 @@ let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [],
 
 "Indent Line Settings
 let g:indentLine_char = '│'
+
+" vimtex 
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_latexmk_progname = 'nvr'
