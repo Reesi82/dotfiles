@@ -32,9 +32,9 @@ unbind =
 bind = select-layout tiled
 
 # cycle through panes
- unbind C-a
+unbind C-a
 # unbind o # this is the default key for cycling panes
- bind ^A select-pane -t:.+
+bind ^A select-pane -t:.+
 
 # make window/pane index start with 1
 set -g base-index 1
@@ -81,13 +81,13 @@ setw -g mouse on
 # set-option -g -q mouse on
 
 bind-key -T root PPage if-shell -F "#{alternate_on}" "send-keys PPage" "copy-mode -e; send-keys PPage"
-bind-key -t vi-copy PPage page-up
-bind-key -t vi-copy NPage page-down
+bind-key -T copy-mode-vi PPage page-up
+bind-key -T copy-mode-vi NPage page-down
 
 bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
 bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
-bind-key -t vi-copy WheelUpPane halfpage-up
-bind-key -t vi-copy WheelDownPane halfpage-down
+bind-key -T copy-mode-vi WheelUpPane halfpage-up
+bind-key -T copy-mode-vi WheelDownPane halfpage-down
 
 # maximizing and restoring windows
 unbind Up
@@ -99,43 +99,43 @@ bind Down last-window \; swap-pane -s fullscreen.1 \; kill-window -t fullscreen
 setw -g mode-keys vi
 # more settings to make copy-mode more vim-like
 unbind [
-bind Escape copy-mode
-unbind p
-bind k paste-buffer
-bind -t vi-copy 'v' begin-selection
-bind -t vi-copy 'y' copy-selection
+    bind Escape copy-mode
+    unbind p
+    bind k paste-buffer
+    bind -T copy-mode-vi 'v' begin-selection
+    bind -T copy-mode-vi 'y' copy-selection
 
 # Buffers to/from Mac clipboard, yay tmux book from pragprog
-bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
-bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
+    bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
+    bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
 
 # Plugin Settings
 
 #Automatically start tmux on boot
 # set -g @continuum-boot 'on'
 #Tmux Continuum
-set -g @resurrect-capture-pane-contents 'on'
-set -g @resurrect-strategy-nvim 'session'
-set -g @resurrect-save 'S'
-set -g @resurrect-restore 'R'
-set -g @continuum-restore 'on'
+    set -g @resurrect-capture-pane-contents 'on'
+    set -g @resurrect-strategy-nvim 'session'
+    set -g @resurrect-save 'S'
+    set -g @resurrect-restore 'R'
+    set -g @continuum-restore 'on'
 
 ##############################
 ### Color & Style Settings ###
 ##############################
 
-source ~/.dotfiles/tmux/theme.sh
+    source ~/.dotfiles/tmux/theme.sh
 
 ##############################
 ########## Plugins ###########
 ##############################
 
 # List of plugins
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-copycat'
-set -g @plugin 'tmux-plugins/tmux-yank'
+    set -g @plugin 'tmux-plugins/tpm'
+    set -g @plugin 'tmux-plugins/tmux-continuum'
+    set -g @plugin 'tmux-plugins/tmux-resurrect'
+    set -g @plugin 'tmux-plugins/tmux-copycat'
+    set -g @plugin 'tmux-plugins/tmux-yank'
 
 # Other examples:
 # set -g @plugin 'github_username/plugin_name'
@@ -144,4 +144,4 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 #
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+    run '~/.tmux/plugins/tpm/tpm'
