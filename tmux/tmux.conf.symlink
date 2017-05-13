@@ -103,7 +103,7 @@ unbind [
     unbind p
     bind p paste-buffer
     bind -T copy-mode-vi 'v' send -X begin-selection
-    bind -T copy-mode-vi 'y' send -X copy-selection
+    bind -T copy-mode-vi 'y' send -X copy-pipe 'xclip -in -selection clipboard'
 
 # Buffers to/from Mac clipboard, yay tmux book from pragprog
     bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
@@ -134,9 +134,7 @@ unbind [
     set -g @plugin 'tmux-plugins/tpm'
     set -g @plugin 'tmux-plugins/tmux-continuum'
     set -g @plugin 'tmux-plugins/tmux-resurrect'
-    #Tmux 2.4 Breaks this plugin
     set -g @plugin 'tmux-plugins/tmux-copycat'
-    set -g @plugin 'tmux-plugins/tmux-yank'
 
 # Other examples:
 # set -g @plugin 'github_username/plugin_name'
