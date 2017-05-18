@@ -77,17 +77,17 @@ bind -r K resize-pane -U 10
 bind -r L resize-pane -R 10
 
 # enable mouse support for switching panes/windows
-setw -g mouse on
+#setw -g mouse on
 # set-option -g -q mouse on
 
-bind-key -T root PPage if-shell -F "#{alternate_on}" "send-keys PPage" "copy-mode -e; send-keys PPage"
-bind-key -T copy-mode-vi PPage send -X page-up
-bind-key -T copy-mode-vi NPage send -X page-down
+#bind-key -T root PPage if-shell -F "#{alternate_on}" "send-keys PPage" "copy-mode -e; send-keys PPage"
+#bind-key -T copy-mode-vi PPage send -X page-up
+#bind-key -T copy-mode-vi NPage send -X page-down
 
-bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
-bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
-bind-key -T copy-mode-vi WheelUpPane send -X halfpage-up
-bind-key -T copy-mode-vi WheelDownPane send -X halfpage-down
+#bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
+#bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
+#bind-key -T copy-mode-vi WheelUpPane send -X halfpage-up
+#bind-key -T copy-mode-vi WheelDownPane send -X halfpage-down
 
 # maximizing and restoring windows
 unbind Up
@@ -102,8 +102,8 @@ unbind [
     bind Escape copy-mode
     unbind p
     bind p paste-buffer
-    bind -T copy-mode-vi 'v' send -X begin-selection
-    bind -T copy-mode-vi 'y' send -X copy-pipe 'xclip -in -selection clipboard'
+#    bind -T copy-mode-vi 'v' send -X begin-selection
+#    bind -T copy-mode-vi 'y' send -X copy-pipe 'xclip -in -selection clipboard'
 
 # Buffers to/from Mac clipboard, yay tmux book from pragprog
     bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
