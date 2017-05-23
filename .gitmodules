@@ -14,10 +14,6 @@
 	path = tmux/config/plugins/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
     ignore = dirty
-[submodule "tmux/config/plugins/tmux-yank"]
-	path = tmux/config/plugins/tmux-yank
-	url = https://github.com/tmux-plugins/tmux-yank.git
-    ignore = dirty
 [submodule "tmux/config/plugins/tpm"]
 	path = tmux/config/plugins/tpm
 	url = git@github.com:tmux-plugins/tpm.git
