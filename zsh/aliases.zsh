@@ -1,13 +1,3 @@
-# reload zsh config
-alias reload!='source ~/.zshrc'
-
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-    colorflag="--color"
-else # OS X `ls`
-    colorflag="-G"
-fi
-
 alias vim="nvim"
 
 # Filesystem aliases

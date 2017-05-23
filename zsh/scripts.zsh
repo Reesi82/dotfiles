@@ -4,6 +4,7 @@
 
 if [ -e ~/.localscripts ]; then; source ~/.localscripts; fi
 
+#Downloads a file, and hard-links it to multiple folders
 curlto(){
 if [ ! -d "$2" ]; then
   mkdir "$2"
@@ -19,6 +20,7 @@ while shift && [ -n "$2" ]; do
 done
 }
 
+#Downloads many files to one folder
 curlone(){
 if [ -d "$1" ]; then
   cd "$1"
@@ -37,14 +39,11 @@ pip-update()
     pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip install -U
 }
 
-gpip(){
-   PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
-
 getinode(){
  echo $(ls -li "$1" | grep -o -m 1 '[0-9][0-9]*' | head -1)
 }
 
+#Find location of all hard-links of a file
 findlinks(){
 local inode=$(getinode "$1")
 find . -xdev -inum $inode
@@ -54,6 +53,7 @@ while shift && [ -n "$1" ]; do
 done
 }
 
+#Delete all hard-links of a file
 dellinks(){
 local inode=$(getinode "$1")
 find . -xdev -inum $inode | xargs rm

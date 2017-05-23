@@ -11,7 +11,7 @@ export TERMINFO="$HOME/.terminfo"
 
 # define the code directory
 # This is where my code exists and where I want the `c` autocomplete to work from exclusively
-if [[ -d ~/code ]]; then
+if [[ -d ~/Projects ]]; then
     export CODE_DIR=~/Projects
 fi
 
@@ -22,12 +22,9 @@ if [[ -a ~/.localrc ]]; then
     source ~/.localrc
 fi
 
-
 # initialize autocomplete
 autoload -U compinit add-zsh-hook
 compinit
-
-#for config ($ZSH/**/*completion.sh) source $config
 
 export EDITOR='nvim'
 

@@ -462,14 +462,6 @@ endfunction
 "===============================================================================
 " 14. PLUGIN SETTINGS
 "===============================================================================
-" " close NERDTree after a file is opened
-" let g:NERDTreeQuitOnOpen=1
-" " show hidden files in NERDTree
-" let NERDTreeShowHidden=1
-" " Toggle NERDTree
-" nmap <silent> <leader>k :NERDTreeToggle<cr>
-" " expand to the path of the file in the current buffer
-" nmap <silent> <leader>y :NERDTreeFind<cr>
 
 " Nerd Commenter Settings
 
@@ -513,6 +505,6 @@ let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [],
 "Indent Line Settings
 let g:indentLine_char = '│'
 
-" vimtex 
+" vimtex
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_latexmk_progname = 'nvr'

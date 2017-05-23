@@ -1,11 +1,11 @@
 # gitconfig
 [user]
-	name = Reesi82
-	email = kristofnemeth12@hotmail.com
+    name = Reesi82
+    email = kristofnemeth12@hotmail.com
 [github]
     user = Reesi82
 [alias]
-    # list all aliases
+# list all aliases
     la = "!git config -l | grep alias | cut -c 7-"
     delete-merged-branches = "!f() { git checkout --quiet master && git branch --merged | grep --invert-match '\\*' | xargs -n 1 git branch --delete; git checkout --quiet @{-1}; }; f"
     diff = diff --ignore-space-at-eol -b -w --ignore-blank-lines
@@ -17,27 +17,27 @@
     ss  = status
     br = branch -v
 
-    # rebase commands
+# rebase commands
     cont = rebase --continue
     conf = "!git s | grep ^U"
 
     l = log --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%C(reset) - %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
-    # show all deleted files in the repo
+# show all deleted files in the repo
     deleted = "!git log --diff-filter=D --summary | grep delete"
 
-    # create an empty commit
+# create an empty commit
     empty = commit --allow-empty
 
-    # current branch
+# current branch
     cbr = rev-parse --abbrev-ref HEAD
 
-    # submodule shortcuts
+# submodule shortcuts
     si = submodule init
     su = submodule update
     sub = "!git submodule sync && git submodule update"
 
-    # show number of commits per contributer, sorted
+# show number of commits per contributer, sorted
     count = shortlog -sn
 
     undo = reset --soft HEAD~1
@@ -45,35 +45,35 @@
 
     cleanup = "!git remote prune origin && git gc && git clean -df && git stash clear"
 
-    # rebase the current branch with changes from upstream remote
+# rebase the current branch with changes from upstream remote
     update = !git fetch upstream && git rebase upstream/`git rev-parse --abbrev-ref HEAD`
 
-    # tag aliases
-    # show the last tag
+# tag aliases
+# show the last tag
     lt = describe --tags --abbrev=0
 
-    # assume aliases
+# assume aliases
     assume = update-index --assume-unchanged
     unassume = update-index --no-assume-unchanged
     assumed = "!git ls-files -v | grep ^h | cut -c 3-"
     unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
 
-    # show the most recently touched branches
+# show the most recently touched branches
     recent = "!git for-each-ref --sort='-committerdate' --format='%(color:red)%(refname)%(color:reset)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--' | less -XFR"
 
-    # grep commands
+# grep commands
 
-    # 'diff grep'
+# 'diff grep'
     dg = "!sh -c 'git ls-files -m | grep $1 | xargs git diff' -"
-    # diff grep changes between two commits
+# diff grep changes between two commits
     dgc = "!sh -c 'git ls-files | grep $1 | xargs git diff $2 $3 -- ' -"
-    # 'checkout grep'
+# 'checkout grep'
     cg = "!sh -c 'git ls-files -m | grep $1 | xargs git checkout ' -"
-    # add grep
+# add grep
     ag = "!sh -c 'git ls-files -m -o --exclude-standard | grep $1 | xargs git add --all' -"
-    # add all
+# add all
     aa = !git ls-files -d | xargs git rm && git ls-files -m -o --exclude-standard | xargs git add
-    # remove grep - Remove found files that are NOT under version control
+# remove grep - Remove found files that are NOT under version control
     rg = "!sh -c 'git ls-files --others --exclude-standard | grep $1 | xargs rm' -"
 
 [color]
@@ -98,10 +98,10 @@
 [color "sh"]
     branch = yellow
 [push]
-    # push will only do the current branch, not all branches
+# push will only do the current branch, not all branches
     default = current
 [branch]
-    # set up 'git pull' to rebase instead of merge
+# set up 'git pull' to rebase instead of merge
     autosetuprebase = always
 [diff]
     renames = copies
@@ -109,12 +109,12 @@
 [difftool]
     prompt = false
 [apply]
-    # do not warn about missing whitespace at EOF
+# do not warn about missing whitespace at EOF
     whitespace = nowarn
 [core]
     excludesfile = ~/.gitignore_global
     pager = less -FXRS -x2
-	editor = nvim
+    editor = nvim
     whitespace = cr-at-eol
 [rerere]
     enabled = true
@@ -124,7 +124,7 @@
     extendRegexp = true
     lineNumber = true
 [rebase]
-	instructionFormat = "[%an - %ar] %s"
+    instructionFormat = "[%an - %ar] %s"
 [pager]
     diff = "diff-so-fancy | less --tabs=4 -RFX"
     show = "diff-so-fancy | less --tabs=4 -RFX"

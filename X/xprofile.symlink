@@ -9,6 +9,7 @@
 
 # Environment variables
 
+#Bind Caps Lock to Escape
 setxkbmap -option caps:escape
 
 [[ -f ~/.extend.xprofile ]] && . ~/.extend.xprofile
