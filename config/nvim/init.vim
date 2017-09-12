@@ -45,8 +45,7 @@ else
 end
 
 " Plug-ins
-" Plug 'scrooloose/nerdtree'                    "NERDTree
-Plug 'tpope/vim-fugitive'                     " Fugitive
+Plug 'tpope/vim-fugitive'                     " Git
 Plug 'vim-airline/vim-airline'                " Airline
 Plug 'vim-airline/vim-airline-themes'         " themes for vim-airline
 Plug 'majutsushi/tagbar'                      " Tagbar
@@ -54,25 +53,27 @@ Plug 'ctrlpvim/ctrlp.vim'                     " Ctrl-P
 Plug 'Chiel92/vim-autoformat'                 " Autoformat
 Plug 'scrooloose/nerdcommenter'               " Comments
 Plug 'ervandew/screen'                        " Tmux
-Plug 'Shougo/deoplete.nvim'                   " Autocompletion
 
 Plug 'benekastah/neomake'                     " Syntastic for neovim
-"Plug 'tmhedberg/SimpylFold'                   " Code Folding
 Plug 'Yggdroot/indentLine'                    " Indent Lines
 Plug 'justincampbell/vim-eighties'            " Auto Resize splits
 
 " Language support
 Plug 'sirtaj/vim-openscad'                    " OpenScad
 Plug 'vim-scripts/indentpython.vim'           " Python
-Plug 'davidhalter/jedi-vim'                   " Autocompletion
 Plug 'sophacles/vim-processing'               " Processing
 Plug 'jvirtanen/vim-octave'                   " Octave
 Plug 'jalvesaq/Nvim-R'                        " R
 Plug 'lervag/vimtex'                          " LaTeX
 
+
+"Autocompletion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'                    " Python Autocomplete
+Plug 'tweekmonster/deoplete-clang2'           " Clang Autocomplete
+
 " Colorschemes
 Plug 'chriskempson/base16-vim'
-"Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
