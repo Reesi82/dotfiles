@@ -58,9 +58,10 @@ if [ -z "$BACKGROUND" ]; then
     export BACKGROUND="dark"
 fi
 
-BASE16_SHELL="$DOTFILES/.config/base16-shell/scripts/$THEME-$BACKGROUND.sh"
+#BASE16_SHELL="$DOTFILES/.config/base16-shell/scripts/$THEME-$BACKGROUND.sh"
 # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-source $BASE16_SHELL
-
+#source $BASE16_SHELL
+BASE16_SHELL=$DOTFILES/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
