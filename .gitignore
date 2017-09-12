@@ -1,5 +1,5 @@
 *.DS_Store
 config/nvim/plugged*
 config/nvim/.netrwhist
-config/nvim/autoload*
+config/nvim/autoload/plug.vim.old
 tmux/config/plugins*
