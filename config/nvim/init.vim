@@ -65,6 +65,7 @@ Plug 'sophacles/vim-processing'               " Processing
 Plug 'jvirtanen/vim-octave'                   " Octave
 Plug 'jalvesaq/Nvim-R'                        " R
 Plug 'lervag/vimtex'                          " LaTeX
+Plug 'tikhomirov/vim-glsl'                    " GLSL
 
 
 "Autocompletion
@@ -378,6 +379,9 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 map <leader>pp :setlocal paste!<cr>
 
 set clipboard=unnamedplus
+
+"Set GLSL File Type
+autocmd BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 " ==============================================================================
 " 13. HELPER FUNCTIONS
