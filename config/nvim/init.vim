@@ -60,6 +60,7 @@ Plug 'justincampbell/vim-eighties'            " Auto Resize splits
 
 " Language support
 Plug 'sirtaj/vim-openscad'                    " OpenScad
+Plug 'JuliaEditorSupport/julia-vim'           " Julia
 Plug 'vim-scripts/indentpython.vim'           " Python
 Plug 'sophacles/vim-processing'               " Processing
 Plug 'jvirtanen/vim-octave'                   " Octave
