@@ -32,7 +32,7 @@ endfunction
 noremap <buffer> <LocalLeader>l :call GetLen()<CR>
 "
 nnoremap <buffer> <F5>
-                        \ :call g:ScreenShellSend("%povray ".expand('%:t'))<CR>
+                        \ :call g:ScreenShellSend("povray ".expand('%:t'))<CR>
 "   misc functinons
 " gets the selected text in visual mode
 function! GetVisual()
