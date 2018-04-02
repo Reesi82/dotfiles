@@ -118,7 +118,7 @@ unbind [
     set -g @resurrect-strategy-nvim 'session'
     set -g @resurrect-save 'S'
     set -g @resurrect-restore 'R'
-    set -g @continuum-restore 'on'
+    set -g @continuum-restore 'off'
 
 ##############################
 ### Color & Style Settings ###
