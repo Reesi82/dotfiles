@@ -2,7 +2,7 @@ au BufRead,BufNewFile *.jl :set filetype=julia
 au BufNewFile,BufRead *.jl setlocal tabstop=4
 au BufNewFile,BufRead *.jl setlocal softtabstop=4
 au BufNewFile,BufRead *.jl setlocal shiftwidth=4
-au BufNewFile,BufRead *.jl setlocal textwidth=79
+au BufNewFile,BufRead *.jl setlocal textwidth=80
 au BufNewFile,BufRead *.jl setlocal expandtab
 au BufNewFile,BufRead *.jl setlocal autoindent
 au BufNewFile,BufRead *.jl setlocal fileformat=unix
