@@ -57,6 +57,7 @@ Plug 'ervandew/screen'                        " Tmux
 Plug 'benekastah/neomake'                     " Syntastic for neovim
 Plug 'Yggdroot/indentLine'                    " Indent Lines
 Plug 'justincampbell/vim-eighties'            " Auto Resize splits
+Plug 'godlygeek/tabular'                      " Align Comments
 
 " Language support
 Plug 'sirtaj/vim-openscad'                    " OpenScad
@@ -311,6 +312,9 @@ vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 "Autoformat
+noremap <Leader> :Tab /#
+
+"Align Comments
 noremap <F3> :Autoformat<CR>
 
 " helpers for dealing with other people's code
