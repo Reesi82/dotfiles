@@ -1,7 +1,7 @@
 au BufNewFile,BufRead *.m setlocal tabstop=4
 au BufNewFile,BufRead *.m setlocal softtabstop=4
 au BufNewFile,BufRead *.m setlocal shiftwidth=4
-au BufNewFile,BufRead *.m setlocal textwidth=79
+au BufNewFile,BufRead *.m setlocal textwidth=80
 au BufNewFile,BufRead *.m setlocal expandtab
 au BufNewFile,BufRead *.m setlocal autoindent
 au BufNewFile,BufRead *.m setlocal fileformat=unix
