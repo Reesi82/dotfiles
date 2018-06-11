@@ -312,7 +312,7 @@ vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 "Align Comments
-noremap <leader>cf :Tab /#
+noremap <leader>cf :Tab /#<cr>
 
 "Autoformat
 noremap <F3> :Autoformat<CR>
