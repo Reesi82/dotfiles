@@ -311,10 +311,10 @@ nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
-"Autoformat
-noremap <Leader> :Tab /#
-
 "Align Comments
+noremap <leader>cf :Tab /#
+
+"Autoformat
 noremap <F3> :Autoformat<CR>
 
 " helpers for dealing with other people's code
