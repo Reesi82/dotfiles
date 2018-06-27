@@ -1,7 +1,8 @@
 au BufNewFile,BufRead *.py setlocal tabstop=4
 au BufNewFile,BufRead *.py setlocal softtabstop=4
 au BufNewFile,BufRead *.py setlocal shiftwidth=4
-au BufNewFile,BufRead *.py setlocal textwidth=80
+au BufNewFile,BufRead *.py setlocal textwidth=0
+au BufNewFile,BufRead *.py setlocal wrapmargin=80
 au BufNewFile,BufRead *.py setlocal expandtab
 au BufNewFile,BufRead *.py setlocal autoindent
 au BufNewFile,BufRead *.py setlocal fileformat=unix
