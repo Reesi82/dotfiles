@@ -201,6 +201,7 @@ set nowb
 set noswapfile
 filetype plugin on
 filetype indent on
+
 " ==============================================================================
 " 6. TEXT SETTINGS
 " ==============================================================================
@@ -386,7 +387,13 @@ map <leader>pp :setlocal paste!<cr>
 set clipboard=unnamedplus
 
 "Set GLSL File Type
-autocmd BufNewFile,BufRead *.vs,*.fs set ft=glsl
+au BufNewFile,BufRead *.cls,*.tex set ft=tex
+au BufNewFile,BufRead *.jl set ft=julia
+au BufNewFile,BufRead *.m set ft=matlab
+au BufNewFile,BufRead *.pde,*.pyde set ft=processing
+au BufNewFile,BufRead *.py set ft=python
+au BufNewFile,BufRead *.r set ft=r
+au BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 " ==============================================================================
 " 13. HELPER FUNCTIONS
