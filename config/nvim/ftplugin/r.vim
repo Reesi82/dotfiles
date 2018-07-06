@@ -1,11 +1,11 @@
-au bufnewfile,bufread *.r setlocal tabstop=4
-au bufnewfile,bufread *.r setlocal softtabstop=4
-au bufnewfile,bufread *.r setlocal shiftwidth=4
-au bufnewfile,bufread *.r setlocal textwidth=79
-au bufnewfile,bufread *.r setlocal expandtab
-au bufnewfile,bufread *.r setlocal autoindent
-au bufnewfile,bufread *.r setlocal fileformat=unix
-au bufnewfile,bufread *.r setlocal foldmethod=manual
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal textwidth=79
+setlocal expandtab
+setlocal autoindent
+setlocal fileformat=unix
+setlocal foldmethod=manual
 
 
 " " octave tmux integration

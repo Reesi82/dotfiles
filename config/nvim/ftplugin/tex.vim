@@ -1,4 +1,3 @@
-au BufRead,BufNewFile *.cls :set filetype=tex
 " this is mostly a matter of taste. but LaTeX looks good with just a bit
 " of indentation.
 set sw=2

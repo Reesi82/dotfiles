@@ -1,12 +1,11 @@
-au BufNewFile,BufRead *.m setlocal tabstop=4
-au BufNewFile,BufRead *.m setlocal softtabstop=4
-au BufNewFile,BufRead *.m setlocal shiftwidth=4
-au BufNewFile,BufRead *.m setlocal textwidth=80
-au BufNewFile,BufRead *.m setlocal expandtab
-au BufNewFile,BufRead *.m setlocal autoindent
-au BufNewFile,BufRead *.m setlocal fileformat=unix
-au BufNewFile,BufRead *.m setlocal foldmethod=manual
-
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal textwidth=80
+setlocal expandtab
+setlocal autoindent
+setlocal fileformat=unix
+setlocal foldmethod=manual
 
 " Octave tmux integration
 let g:ScreenImpl = "Tmux"
