@@ -14,7 +14,7 @@ setlocal foldmethod=manual
 " Octave tmux integration
 let g:ScreenImpl = "Tmux"
 " Open an Octavee shell.
-noremap <buffer> <LocalLeader>p :ScreenShell octave-cli<CR>
+noremap <buffer> <LocalLeader>p :ScreenShell matlab -nosplash -nodesktop<CR>
 " Close whichever shell is running.
 noremap <buffer> <LocalLeader>q :ScreenQuit<CR>
 " Send current line to octave and move to next line.
