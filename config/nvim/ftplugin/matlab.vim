@@ -1,7 +1,11 @@
 setlocal tabstop=4
 setlocal softtabstop=4
 setlocal shiftwidth=4
-setlocal textwidth=80
+setlocal textwidth=0
+setlocal wrapmargin=0
+setlocal wrap
+setlocal linebreak
+setlocal nolist
 setlocal expandtab
 setlocal autoindent
 setlocal fileformat=unix
