@@ -392,6 +392,7 @@ au BufNewFile,BufRead *.jl set ft=julia
 au BufNewFile,BufRead *.m set ft=matlab
 au BufNewFile,BufRead *.pde,*.pyde set ft=processing
 au BufNewFile,BufRead *.py set ft=python
+au BufNewFile,BufRead *.sage set ft=python
 au BufNewFile,BufRead *.r set ft=r
 au BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
