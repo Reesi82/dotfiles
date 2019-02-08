@@ -71,9 +71,7 @@ Plug 'tikhomirov/vim-glsl'                    " GLSL
 
 
 "Autocompletion
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'                    " Python Autocomplete
-Plug 'tweekmonster/deoplete-clang2'           " Clang Autocomplete
+Plug 'Valloric/YouCompleteMe', { 'do': ':UpdateRemotePlugins' }
 
 " Colorschemes
 Plug 'chriskempson/base16-vim'
