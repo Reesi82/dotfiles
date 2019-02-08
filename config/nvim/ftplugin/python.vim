@@ -30,6 +30,7 @@ let g:ScreenImpl = "Tmux"
 " Open an IPython3 shell.
 noremap <buffer> <LocalLeader>p :IPython<CR>
 noremap <buffer> <LocalLeader>p2 :ScreenShell ipython2<CR>
+noremap <buffer> <LocalLeader>sa :ScreenShell sage<CR>
 " Close whichever shell is running.
 noremap <buffer> <LocalLeader>q :ScreenQuit<CR>
 " Send current line to python and move to next line.
@@ -95,6 +96,8 @@ nnoremap <buffer> <leader>v :silent exec '!python' shellescape(@%, 1)<cr>
 nnoremap <buffer> <LocalLeader>r :silent exec '!python2' shellescape(@%, 1)<cr>
 nnoremap <buffer> <F5>
                         \ :call g:ScreenShellSend("%run ".expand('%:t'))<CR>
+nnoremap <buffer> <LocalLeader>sr
+                        \ :call g:ScreenShellSend("%runfile ".expand('%:t'))<CR>
 "   misc functinons
 " gets the selected text in visual mode
 function! GetVisual()
