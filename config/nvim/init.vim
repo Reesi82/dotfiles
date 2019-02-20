@@ -507,8 +507,8 @@ let g:ctrlp_custom_ignore = {
 " search the nearest ancestor that contains .git, .hg, .svn
 "let g:ctrlp_working_path_mode = 2
 
-" When reading a buffer (after 1s), and when writing (no delay).
-call neomake#configure#automake('rw', 1000)
+" When writing a buffer (no delay), and on normal mode changes (after 750ms).
+call neomake#configure#automake('nw', 750)
 
  "Jedi Config
 let g:jedi#use_splits_not_buffers = "right"
@@ -531,3 +531,5 @@ let g:indentLine_char = '│'
 " vimtex
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_latexmk_progname = 'nvr'
+let g:vimtex_quickfix_mode = 2
+" let g:vimtex_quickfix_autoclose_after_keystrokes = 1
