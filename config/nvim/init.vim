@@ -507,7 +507,8 @@ let g:ctrlp_custom_ignore = {
 " search the nearest ancestor that contains .git, .hg, .svn
 "let g:ctrlp_working_path_mode = 2
 
- autocmd! BufWritePost * Neomake
+" When reading a buffer (after 1s), and when writing (no delay).
+call neomake#configure#automake('rw', 1000)
 
  "Jedi Config
 let g:jedi#use_splits_not_buffers = "right"
