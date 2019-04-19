@@ -58,6 +58,7 @@ Plug 'benekastah/neomake'                     " Syntastic for neovim
 Plug 'Yggdroot/indentLine'                    " Indent Lines
 Plug 'justincampbell/vim-eighties'            " Auto Resize splits
 Plug 'godlygeek/tabular'                      " Align Comments
+Plug 'rhysd/vim-grammarous'                   " Grammar Checking
 
 " Language support
 Plug 'sirtaj/vim-openscad'                    " OpenScad
