@@ -1,5 +1,76 @@
-snippet prob "Begin Problem Environment"
-\begin{problem}
+#Problem
+snippet prob "Begin Problem Environment" bA
+\\begin{problem}
+$0
+\\end{problem}
+endsnippet
+
+#Theorem
+snippet theo "Begin Theorem Environment" bA
+\\begin{theorem}[$1]
+$0
+\\end{theorem}
+endsnippet
+
+#Lemma
+snippet lemma "Begin Lemma Environment" bA
+\\begin{lemma}
+$0
+\\end{lemma}
+endsnippet
+
+#Proposition
+snippet prop "Begin Proposition Environment" bA
+\\begin{proposition}
+$0
+\\end{proposition}
+endsnippet
+
+#Corollary
+snippet coro "Begin Corolary Environment" bA
+\\begin{corollary}
+$0
+\\end{corollary}
+endsnippet
+
+#Definition
+snippet def "Begin Definition Environment"
+\\begin{definition*}[$1]
+$0
+\\end{definition*}
+endsnippet
+
+#Proof
+snippet proof "Begin Proof Environment" bA
+\\begin{proof}
+$0
+\\end{proof}
+endsnippet
+
+snippet today "Date"
+`date +%F`
+endsnippet
+
+snippet \{ "Set" iA
+\\{${1}\\}`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+snippet dm "Math" wA
+\[
 $1
-\end{problem}
+\] $0
 endsnippet
