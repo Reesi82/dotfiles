@@ -69,13 +69,14 @@ Plug 'jvirtanen/vim-octave'                   " Octave
 Plug 'jalvesaq/Nvim-R'                        " R
 Plug 'lervag/vimtex'                          " LaTeX
 Plug 'SirVer/ultisnips'                       " Snippets
-" Plug 'ervandew/supertab'                      " Snippets
+Plug 'ervandew/supertab'                      " Snippets
 Plug 'honza/vim-snippets'                     " Snippets
 Plug 'tikhomirov/vim-glsl'                    " GLSL
 
 
 "Autocompletion
 Plug 'Valloric/YouCompleteMe', { 'do': ':UpdateRemotePlugins' }
+ " let g:ycm_filetype_blacklist = { 'tex':1 }
 
 " Colorschemes
 Plug 'chriskempson/base16-vim'
@@ -519,8 +520,8 @@ let g:jedi#use_splits_not_buffers = "right"
 nnoremap <silent> <buffer> <localleader>r :call jedi#rename()<cr>
 
 "Neocompelte config
-let g:deoplete#enable_at_startup = 1
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" let g:deoplete#enable_at_startup = 1
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "Vim Eighties Config
 let g:eighties_enabled = 1
@@ -542,18 +543,18 @@ let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_autoclose_after_keystrokes = 3
 
 " " make YCM compatible with UltiSnips (using supertab)
-" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-k>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<c-j>'
 
 " " better key bindings for UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " ultisnips
-let g:UltiSnipsExpandTrigger = '<c-j>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+" let g:UltiSnipsExpandTrigger = '<c-j>'
+" let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+" let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["Ultisnips","mysnippets"]
