@@ -61,19 +61,39 @@ snip.rv = ''
 endsnippet
 
 snippet \left( "Left-Right(" iA
-\left( $1 \right) $0
+{\left( $1 \right) $0}
 endsnippet
 
 snippet \left{ "Left-Right{" iA
-\left{ $1 \right} $0
+{\left{ $1 \right} $0}
 endsnippet
 
 snippet \left[ "Left-Right[" iA
-\left[ $1 \right] $0
+{\left[ $1 \right] $0}
 endsnippet
 
 snippet \left< "Left-Right<" iA
-\left< $1 \right> $0
+{\left< $1 \right> $0}
+endsnippet
+
+snippet \abs "Absolute Value" iA
+{\abs{$1}} $0
+endsnippet
+
+snippet \norm "Norm" iA
+{\norm{$1}} $0
+endsnippet
+
+snippet \lim "Limits" iA
+{\lim\limits_{$1}^{$2} $3}$0
+endsnippet
+
+snippet \sum "Summation" iA
+{\sum\limits_{$1}^{$2} $3}$0
+endsnippet
+
+snippet \int "Integral" iA
+{\int\limits_{$1}^{$2} $3 \d $4}$0
 endsnippet
 
 snippet mk "Math" wA
