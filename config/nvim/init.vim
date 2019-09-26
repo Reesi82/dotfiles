@@ -541,6 +541,7 @@ let g:vimtex_quickfix_mode = 2
 set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_autoclose_after_keystrokes = 3
+let g:vimtex_indent_on_ampersands = 0
 
 " " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
