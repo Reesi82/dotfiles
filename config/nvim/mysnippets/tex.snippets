@@ -54,18 +54,34 @@ endsnippet
 snippet \{ "Set" iA
 \\{${1}\\}`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-    snip.rv = ' '
+snip.rv = ' '
 else:
-    snip.rv = ''
+snip.rv = ''
 `$2
+endsnippet
+
+snippet \left( "Left-Right(" iA
+\left( $1 \right) $0
+endsnippet
+
+snippet \left{ "Left-Right{" iA
+\left{ $1 \right} $0
+endsnippet
+
+snippet \left[ "Left-Right[" iA
+\left[ $1 \right] $0
+endsnippet
+
+snippet \left< "Left-Right<" iA
+\left< $1 \right> $0
 endsnippet
 
 snippet mk "Math" wA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-    snip.rv = ' '
+snip.rv = ' '
 else:
-    snip.rv = ''
+snip.rv = ''
 `$2
 endsnippet
 
