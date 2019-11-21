@@ -53,6 +53,7 @@ Plug 'ctrlpvim/ctrlp.vim'                     " Ctrl-P
 Plug 'Chiel92/vim-autoformat'                 " Autoformat
 Plug 'scrooloose/nerdcommenter'               " Comments
 Plug 'ervandew/screen'                        " Tmux
+Plug 'vim-scripts/Vimball'                    " Vimball
 
 Plug 'benekastah/neomake'                     " Syntastic for neovim
 Plug 'Yggdroot/indentLine'                    " Indent Lines
@@ -63,6 +64,7 @@ Plug 'rhysd/vim-grammarous'                   " Grammar Checking
 " Language support
 Plug 'sirtaj/vim-openscad'                    " OpenScad
 Plug 'JuliaEditorSupport/julia-vim'           " Julia
+Plug 'junegunn/vim-emoji'                     " Emojis
 Plug 'vim-scripts/indentpython.vim'           " Python
 Plug 'sophacles/vim-processing'               " Processing
 Plug 'jvirtanen/vim-octave'                   " Octave
@@ -545,7 +547,7 @@ let g:vimtex_indent_on_ampersands = 0
 
 " " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-k>', '<Up>']
+let g:ycm_key_list_previous_completion = ['<c-b>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<c-j>'
 
 " " better key bindings for UltiSnipsExpandTrigger
@@ -556,6 +558,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " ultisnips
 " let g:UltiSnipsExpandTrigger = '<c-j>'
 " let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-" let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["Ultisnips","mysnippets"]
