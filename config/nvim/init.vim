@@ -71,13 +71,13 @@ Plug 'jvirtanen/vim-octave'                   " Octave
 Plug 'jalvesaq/Nvim-R'                        " R
 Plug 'lervag/vimtex'                          " LaTeX
 Plug 'SirVer/ultisnips'                       " Snippets
-Plug 'ervandew/supertab'                      " Snippets
+" Plug 'ervandew/supertab'                      " Snippets
 Plug 'honza/vim-snippets'                     " Snippets
 Plug 'tikhomirov/vim-glsl'                    " GLSL
 
 
 "Autocompletion
-Plug 'Valloric/YouCompleteMe', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Valloric/YouCompleteMe', { 'do': ':UpdateRemotePlugins' }
  " let g:ycm_filetype_blacklist = { 'tex':1 }
 
 " Colorschemes
@@ -516,10 +516,6 @@ let g:ctrlp_custom_ignore = {
 
 " When writing a buffer (no delay), and on normal mode changes (after 750ms).
 call neomake#configure#automake('nw', 750)
-
-"Jedi Config
-let g:jedi#use_splits_not_buffers = "right"
-nnoremap <silent> <buffer> <localleader>r :call jedi#rename()<cr>
 
 "Neocompelte config
 " let g:deoplete#enable_at_startup = 1
