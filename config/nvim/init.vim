@@ -39,9 +39,9 @@ autocmd FocusLost * silent! wa
 " ==============================================================================
 " Init vim-plug
 if has("win32") || has("win64")
-  call plug#begin('$USERPROFILE/vimfiles/plugged/')
+    call plug#begin('$USERPROFILE/vimfiles/plugged/')
 else
-  call plug#begin('~/.vim/plugged/')
+    call plug#begin('~/.vim/plugged/')
 end
 
 " Plug-ins
@@ -56,6 +56,7 @@ Plug 'ervandew/screen'                        " Tmux
 Plug 'vim-scripts/Vimball'                    " Vimball
 
 Plug 'benekastah/neomake'                     " Syntastic for neovim
+Plug 'ervandew/supertab'                      " Tab Completion
 Plug 'Yggdroot/indentLine'                    " Indent Lines
 Plug 'justincampbell/vim-eighties'            " Auto Resize splits
 Plug 'godlygeek/tabular'                      " Align Comments
@@ -71,17 +72,14 @@ Plug 'jvirtanen/vim-octave'                   " Octave
 Plug 'jalvesaq/Nvim-R'                        " R
 Plug 'lervag/vimtex'                          " LaTeX
 Plug 'SirVer/ultisnips'                       " Snippets
-" Plug 'ervandew/supertab'                      " Snippets
 Plug 'honza/vim-snippets'                     " Snippets
 Plug 'tikhomirov/vim-glsl'                    " GLSL
 
-
-"Autocompletion
-" Plug 'Valloric/YouCompleteMe', { 'do': ':UpdateRemotePlugins' }
- " let g:ycm_filetype_blacklist = { 'tex':1 }
-
 " Colorschemes
 Plug 'chriskempson/base16-vim'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
@@ -183,9 +181,9 @@ set colorcolumn=80
 " execute "colorscheme ".$THEME."-".$BACKGROUND
 
 if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
-  source ~/.vimrc_background
+    let base16colorspace=256
+    set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
+    source ~/.vimrc_background
 endif
 
 "Airline Settings
@@ -235,8 +233,8 @@ map k gk
 
 "Resize horizontal splits fast
 if bufwinnr(1)
-  map + <C-W>+
-  map - <C-W>-
+    map + <C-W>+
+    map - <C-W>-
 endif
 
 "Scroll window faster
@@ -288,16 +286,16 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
 try
-  set switchbuf=useopen,usetab,newtab
-  set stal=2
+    set switchbuf=useopen,usetab,newtab
+    set stal=2
 catch
 endtry
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
 " Remember info about open buffers on close
 set viminfo^=%
 
@@ -329,9 +327,9 @@ nmap ,s :set ts=4 sts=4 sw=4 et<cr>
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
@@ -408,84 +406,84 @@ au BufNewFile,BufRead *.vs,*.fs set ft=glsl
 " numbers, let's declare a function that does the job for us: it sets
 " relativenumbers if it's OFF, it unsets it if it's ON.
 function! ToggleRelativeNumber()
-  if &relativenumber == 1
-    set norelativenumber
-    set number
-  else
-    set relativenumber
-  endif
+    if &relativenumber == 1
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
 endfunction
 
 function! CmdLine(str)
-  exe "menu Foo.Bar :" . a:str
-  emenu Foo.Bar
-  unmenu Foo
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
 endfunction
 
 function! VisualSelection(direction) range
-  let l:saved_reg = @"
-  execute "normal! vgvy"
+    let l:saved_reg = @"
+    execute "normal! vgvy"
 
-  let l:pattern = escape(@", '\\/.*$^~[]')
-  let l:pattern = substitute(l:pattern, "\n$", "", "")
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
 
-  if a:direction == 'b'
-    execute "normal ?" . l:pattern . "^M"
-  elseif a:direction == 'gv'
-    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-  elseif a:direction == 'replace'
-    call CmdLine("%s" . '/'. l:pattern . '/')
-  elseif a:direction == 'f'
-    execute "normal /" . l:pattern . "^M"
-  endif
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
 
-  let @/ = l:pattern
-  let @" = l:saved_reg
+    let @/ = l:pattern
+    let @" = l:saved_reg
 endfunction
 
 
 " Returns true if paste mode is enabled
 function! HasPaste()
-  if &paste
-    return 'PASTE MODE  '
-  en
-  return ''
+    if &paste
+        return 'PASTE MODE  '
+    en
+    return ''
 endfunction
 
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-  let l:currentBufNum = bufnr("%")
-  let l:alternateBufNum = bufnr("#")
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
 
-  if buflisted(l:alternateBufNum)
-    buffer #
-  else
-    bnext
-  endif
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
 
-  if bufnr("%") == l:currentBufNum
-    new
-  endif
+    if bufnr("%") == l:currentBufNum
+        new
+    endif
 
-  if buflisted(l:currentBufNum)
-    execute("bdelete! ".l:currentBufNum)
-  endif
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
 endfunction
 
 " Window movement shortcuts
 " move to the window in the direction shown, or create a new window
 function! WinMove(key)
-  let t:curwin = winnr()
-  exec "wincmd ".a:key
-  if (t:curwin == winnr())
-    if (match(a:key,'[jk]'))
-      wincmd v
-    else
-      wincmd s
-    endif
+    let t:curwin = winnr()
     exec "wincmd ".a:key
-  endif
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
 endfunction
 
 "===============================================================================
@@ -507,19 +505,15 @@ let g:ctrlp_working_path_mode = 'ra'
 
 " CtrlP ignore patterns
 let g:ctrlp_custom_ignore = {
-      \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
-      \ 'file': '\.exe$\|\.so$'
-      \ }
+            \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
+            \ 'file': '\.exe$\|\.so$'
+            \ }
 
 " search the nearest ancestor that contains .git, .hg, .svn
 "let g:ctrlp_working_path_mode = 2
 
 " When writing a buffer (no delay), and on normal mode changes (after 750ms).
 call neomake#configure#automake('nw', 750)
-
-"Neocompelte config
-" let g:deoplete#enable_at_startup = 1
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "Vim Eighties Config
 let g:eighties_enabled = 1
@@ -541,19 +535,19 @@ let g:tex_conceal='abdmg'
 let g:vimtex_quickfix_autoclose_after_keystrokes = 3
 let g:vimtex_indent_on_ampersands = 0
 
-" " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-b>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<c-j>'
-
-" " better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-" ultisnips
-" let g:UltiSnipsExpandTrigger = '<c-j>'
-" let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-b>'
+" let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["Ultisnips","mysnippets"]
+
+"Deoplete
+call deoplete#custom#var('omni', 'input_patterns', {
+            \ 'tex': g:vimtex#re#deoplete
+            \})
+
+let g:SuperTabDefaultCompletionType = "<tab>"
+
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
